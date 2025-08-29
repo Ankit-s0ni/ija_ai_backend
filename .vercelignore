@@ -1,0 +1,15 @@
+# Ignore local dev files
+.env
+.env.*
+__pycache__/
+.venv/
+venv/
+env/
+.vscode/
+.idea/
+*.log
+dist/
+build/
+*.egg-info/
+eggs/
+*.pyc

@@ -164,13 +164,13 @@ All resume endpoints require authentication header: `Authorization: Bearer <acce
 
 ## Future Enhancements
 
-### Phase 2: Asynchronous Task Processing
+### Phase 2: Asynchronous Task Processing (Optional Future)
 
-To improve scalability and user experience for long-running AI tasks, we will introduce a background task queue.
+If needed later, we can introduce a background task queue so long-running AI tasks don't block HTTP requests.
 
--   **Technology:** Celery with Redis
--   **Benefit:** API will respond instantly while AI tasks run in the background. This prevents request timeouts and allows the user to continue using the application without waiting.
--   **Implementation:** The `create_kit` and `create_analysis` endpoints will be converted to trigger asynchronous jobs. The frontend will then poll for the results.
+-   Possible technologies: Celery with Redis, RQ, Dramatiq, or simple background tasks
+-   Benefit: API can respond instantly while tasks run in the background
+-   Implementation: Convert `create_kit` and `create_analysis` to enqueue a job and poll for results
 
 ### Phase 3: Advanced AI with LangGraph
 
@@ -244,10 +244,9 @@ Replace localStorage usage in your React components with API calls and proper st
 
 ## Environment Setup
 
-1. Make sure MongoDB is running on `localhost:27017`
-2. Make sure Redis is running on `localhost:6379` (for Celery)
-3. Set up Google OAuth2 credentials in `.env` file
-4. Start the backend server: `uvicorn app.main:app --reload`
+1. Make sure MongoDB is running on `localhost:27017` (or use Atlas)
+2. Set up Google OAuth2 credentials in `.env` file
+3. Start the backend server: `uvicorn app.main:app --reload`
 
 ## CORS Configuration
 

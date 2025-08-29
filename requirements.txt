@@ -7,8 +7,6 @@ pypdf
 pydantic
 python-dotenv
 pydantic-settings
-celery[redis]
-redis
 langchain
 # langgraph-core is not on PyPI; install via GitHub when available.
  # e.g.: pip install git+https://github.com/langgraph/langgraph-core.git
